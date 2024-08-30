@@ -1,3 +1,7 @@
+OWNER CONTACT
+SITE : https://darkxcode.site
+TELEGRAM : t.me/zlaxtert
+
 ==================================================================================================
 ENGLISH LANGUAGE
 
