@@ -21,4 +21,3 @@ $proxy_pwd  = $settings["proxy_Auth"];
 $proxy_type = $settings["type_proxy"];
 $thisApikey = $settings["apikey"];
 $thisApi    = $settings["thisAPI"];
-
