@@ -47,7 +47,7 @@
     echo PHP_EOL . PHP_EOL . "$WH [$YL!$WH]$RD THANKS FOR USING$WH [$YL!$WH]$DEF" . PHP_EOL . PHP_EOL;
     exit();
  } else {
-    echo PHP_EOL . PHP_EOL . "$WH [$YL!$WH]$RD NUMVER NOT FOUND$WH [$YL!$WH]$DEF" . PHP_EOL . PHP_EOL;
+    echo PHP_EOL . PHP_EOL . "$WH [$YL!$WH]$RD NUMBER NOT FOUND$WH [$YL!$WH]$DEF" . PHP_EOL . PHP_EOL;
 	goto enterGateway;
  }
 
