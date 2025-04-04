@@ -47,7 +47,7 @@
     echo PHP_EOL . PHP_EOL . "$WH [$YL!$WH]$RD THANKS FOR USING$WH [$YL!$WH]$DEF" . PHP_EOL . PHP_EOL;
     exit();
  } else {
-    echo PHP_EOL . PHP_EOL . "$WH [$YL!$WH]$RD NUMBER NOT FOUND$WH [$YL!$WH]$DEF" . PHP_EOL . PHP_EOL;
+    echo PHP_EOL . PHP_EOL . "$WH [$YL!$WH]$RD NUMVER NOT FOUND$WH [$YL!$WH]$DEF" . PHP_EOL . PHP_EOL;
 	goto enterGateway;
  }
 
@@ -102,136 +102,143 @@
     $bank_name = $js['data']['info']['bank_name'];
     $bank_brand = $js['data']['info']['bank_brand'];
     $type_cc = $js['data']['info']['type'];
+
+    if($gateway == "stripe_charger"){
+        $successPay = $js['data']['info']['success_pay'];
+        $payynya = "[$YL DONATION$DEF: $YL$successPay$DEF ]";
+    }else{
+        $payynya = "|";
+    }
     
 
     if (strpos($x, 'APPROVED')) {
         $live++;
         save_file("result/live.txt", "$list | $scheme | $type_cc | $bank_name | $bank_brand | $country ($alpha2)");                           
-        echo "[$RD$no$DEF/$GR$total$DEF][$YL$iniJam$DEF]$GR APPROVED$DEF =>$BL $list$DEF | [$YL GATE$DEF: $YL$gateway $DEF ][$YL MSG$DEF: $MG$msg$DEF ] | BY$CY DARKXCODE$DEF (V4.5)" . PHP_EOL;
+        echo "[$RD$no$DEF/$GR$total$DEF][$YL$iniJam$DEF]$GR APPROVED$DEF =>$BL $list$DEF | [$YL GATE$DEF: $YL$gateway$DEF ] $payynya [$YL MSG$DEF: $MG$msg$DEF ] | BY$CY DARKXCODE$DEF (V4.5)" . PHP_EOL;
     } else if (strpos($x, 'SUCCESS')) {
         $live++;
         save_file("result/live.txt", "$list | $scheme | $type_cc | $bank_name | $bank_brand | $country ($alpha2)");                           
-        echo "[$RD$no$DEF/$GR$total$DEF][$YL$iniJam$DEF]$GR APPROVED$DEF =>$BL $list$DEF | [$YL GATE$DEF: $YL$gateway $DEF ][$YL MSG$DEF: $MG$msg$DEF ] | BY$CY DARKXCODE$DEF (V4.5)" . PHP_EOL;
+        echo "[$RD$no$DEF/$GR$total$DEF][$YL$iniJam$DEF]$GR APPROVED$DEF =>$BL $list$DEF | [$YL GATE$DEF: $YL$gateway$DEF ] $payynya [$YL MSG$DEF: $MG$msg$DEF ] | BY$CY DARKXCODE$DEF (V4.5)" . PHP_EOL;
     } else if (strpos($x, 'APPROV')) {
         $live++;
         save_file("result/live.txt", "$list | $scheme | $type_cc | $bank_name | $bank_brand | $country ($alpha2)");                           
-        echo "[$RD$no$DEF/$GR$total$DEF][$YL$iniJam$DEF]$GR APPROVED$DEF =>$BL $list$DEF | [$YL GATE$DEF: $YL$gateway $DEF ][$YL MSG$DEF: $MG$msg$DEF ] | BY$CY DARKXCODE$DEF (V4.5)" . PHP_EOL;
+        echo "[$RD$no$DEF/$GR$total$DEF][$YL$iniJam$DEF]$GR APPROVED$DEF =>$BL $list$DEF | [$YL GATE$DEF: $YL$gateway$DEF ] $payynya [$YL MSG$DEF: $MG$msg$DEF ] | BY$CY DARKXCODE$DEF (V4.5)" . PHP_EOL;
     } else if (strpos($x, 'THANK YOU')) {
         $live++;
         save_file("result/live.txt", "$list | $scheme | $type_cc | $bank_name | $bank_brand | $country ($alpha2)");                           
-        echo "[$RD$no$DEF/$GR$total$DEF][$YL$iniJam$DEF]$GR APPROVED$DEF =>$BL $list$DEF | [$YL GATE$DEF: $YL$gateway $DEF ][$YL MSG$DEF: $MG$msg$DEF ] | BY$CY DARKXCODE$DEF (V4.5)" . PHP_EOL;
+        echo "[$RD$no$DEF/$GR$total$DEF][$YL$iniJam$DEF]$GR APPROVED$DEF =>$BL $list$DEF | [$YL GATE$DEF: $YL$gateway$DEF ] $payynya [$YL MSG$DEF: $MG$msg$DEF ] | BY$CY DARKXCODE$DEF (V4.5)" . PHP_EOL;
     } else if (strpos($x, '"cvc_check":"pass"')) {
         $live++;
         save_file("result/live.txt", "$list | $scheme | $type_cc | $bank_name | $bank_brand | $country ($alpha2)");                           
-        echo "[$RD$no$DEF/$GR$total$DEF][$YL$iniJam$DEF]$GR APPROVED$DEF =>$BL $list$DEF | [$YL GATE$DEF: $YL$gateway $DEF ][$YL MSG$DEF: $MG$msg$DEF ] | BY$CY DARKXCODE$DEF (V4.5)" . PHP_EOL;
+        echo "[$RD$no$DEF/$GR$total$DEF][$YL$iniJam$DEF]$GR APPROVED$DEF =>$BL $list$DEF | [$YL GATE$DEF: $YL$gateway$DEF ] $payynya [$YL MSG$DEF: $MG$msg$DEF ] | BY$CY DARKXCODE$DEF (V4.5)" . PHP_EOL;
     } else if (strpos($x, 'cvc_check')) {
         $live++;
         save_file("result/live.txt", "$list | $scheme | $type_cc | $bank_name | $bank_brand | $country ($alpha2)");                           
-        echo "[$RD$no$DEF/$GR$total$DEF][$YL$iniJam$DEF]$GR APPROVED$DEF =>$BL $list$DEF | [$YL GATE$DEF: $YL$gateway $DEF ][$YL MSG$DEF: $MG$msg$DEF ] | BY$CY DARKXCODE$DEF (V4.5)" . PHP_EOL;
+        echo "[$RD$no$DEF/$GR$total$DEF][$YL$iniJam$DEF]$GR APPROVED$DEF =>$BL $list$DEF | [$YL GATE$DEF: $YL$gateway$DEF ] $payynya [$YL MSG$DEF: $MG$msg$DEF ] | BY$CY DARKXCODE$DEF (V4.5)" . PHP_EOL;
     } else if (strpos($x, '"type":"one-time"')) {
         $live++;
         save_file("result/live.txt", "$list | $scheme | $type_cc | $bank_name | $bank_brand | $country ($alpha2)");                           
-        echo "[$RD$no$DEF/$GR$total$DEF][$YL$iniJam$DEF]$GR APPROVED$DEF =>$BL $list$DEF | [$YL GATE$DEF: $YL$gateway $DEF ][$YL MSG$DEF: $MG$msg$DEF ] | BY$CY DARKXCODE$DEF (V4.5)" . PHP_EOL;
+        echo "[$RD$no$DEF/$GR$total$DEF][$YL$iniJam$DEF]$GR APPROVED$DEF =>$BL $list$DEF | [$YL GATE$DEF: $YL$gateway$DEF ] $payynya [$YL MSG$DEF: $MG$msg$DEF ] | BY$CY DARKXCODE$DEF (V4.5)" . PHP_EOL;
     } else if (strpos($x, 'one-time')) {
         $live++;
         save_file("result/live.txt", "$list | $scheme | $type_cc | $bank_name | $bank_brand | $country ($alpha2)");                           
-        echo "[$RD$no$DEF/$GR$total$DEF][$YL$iniJam$DEF]$GR APPROVED$DEF =>$BL $list$DEF | [$YL GATE$DEF: $YL$gateway $DEF ][$YL MSG$DEF: $MG$msg$DEF ] | BY$CY DARKXCODE$DEF (V4.5)" . PHP_EOL;
+        echo "[$RD$no$DEF/$GR$total$DEF][$YL$iniJam$DEF]$GR APPROVED$DEF =>$BL $list$DEF | [$YL GATE$DEF: $YL$gateway$DEF ] $payynya [$YL MSG$DEF: $MG$msg$DEF ] | BY$CY DARKXCODE$DEF (V4.5)" . PHP_EOL;
     } else if (strpos($x, 'SUCCEEDED')) {
         $live++;
         save_file("result/live.txt", "$list | $scheme | $type_cc | $bank_name | $bank_brand | $country ($alpha2)");                           
-        echo "[$RD$no$DEF/$GR$total$DEF][$YL$iniJam$DEF]$GR APPROVED$DEF =>$BL $list$DEF | [$YL GATE$DEF: $YL$gateway $DEF ][$YL MSG$DEF: $MG$msg$DEF ] | BY$CY DARKXCODE$DEF (V4.5)" . PHP_EOL;
+        echo "[$RD$no$DEF/$GR$total$DEF][$YL$iniJam$DEF]$GR APPROVED$DEF =>$BL $list$DEF | [$YL GATE$DEF: $YL$gateway$DEF ] $payynya [$YL MSG$DEF: $MG$msg$DEF ] | BY$CY DARKXCODE$DEF (V4.5)" . PHP_EOL;
     } else if (strpos($x, 'Authenticate Successful')) {
         $live++;
         save_file("result/vbv-live.txt", "$list | $scheme | $type_cc | $bank_name | $bank_brand | $country ($alpha2)");
-        echo "[$RD$no$DEF/$GR$total$DEF][$YL$iniJam$DEF]$GR PASSED$DEF =>$BL $list$DEF | [$YL GATE$DEF: $YL$gateway $DEF ][$YL MSG$DEF: $MG$msg$DEF ] | BY$CY DARKXCODE$DEF (V4.5)" . PHP_EOL;
+        echo "[$RD$no$DEF/$GR$total$DEF][$YL$iniJam$DEF]$GR PASSED$DEF =>$BL $list$DEF | [$YL GATE$DEF: $YL$gateway$DEF ] $payynya [$YL MSG$DEF: $MG$msg$DEF ] | BY$CY DARKXCODE$DEF (V4.5)" . PHP_EOL;
     } else if (strpos($x, 'Authenticate Unable To Authenticate')) {
         $live++;
         save_file("result/vbv-live.txt", "$list | $scheme | $type_cc | $bank_name | $bank_brand | $country ($alpha2)");
-        echo "[$RD$no$DEF/$GR$total$DEF][$YL$iniJam$DEF]$GR PASSED$DEF =>$BL $list$DEF | [$YL GATE$DEF: $YL$gateway $DEF ][$YL MSG$DEF: $MG$msg$DEF ] | BY$CY DARKXCODE$DEF (V4.5)" . PHP_EOL;
+        echo "[$RD$no$DEF/$GR$total$DEF][$YL$iniJam$DEF]$GR PASSED$DEF =>$BL $list$DEF | [$YL GATE$DEF: $YL$gateway$DEF ] $payynya [$YL MSG$DEF: $MG$msg$DEF ] | BY$CY DARKXCODE$DEF (V4.5)" . PHP_EOL;
     } else if (strpos($x, 'Authenticate Attempt Successful')) {
         $live++;
         save_file("result/vbv-live.txt", "$list | $scheme | $type_cc | $bank_name | $bank_brand | $country ($alpha2)");
-        echo "[$RD$no$DEF/$GR$total$DEF][$YL$iniJam$DEF]$GR PASSED$DEF =>$BL $list$DEF | [$YL GATE$DEF: $YL$gateway $DEF ][$YL MSG$DEF: $MG$msg$DEF ] | BY$CY DARKXCODE$DEF (V4.5)" . PHP_EOL;
+        echo "[$RD$no$DEF/$GR$total$DEF][$YL$iniJam$DEF]$GR PASSED$DEF =>$BL $list$DEF | [$YL GATE$DEF: $YL$gateway$DEF ] $payynya [$YL MSG$DEF: $MG$msg$DEF ] | BY$CY DARKXCODE$DEF (V4.5)" . PHP_EOL;
     } else if (strpos($x, 'Authenticate Unavailable')) {
         $live++;
         save_file("result/vbv-live.txt", "$list | $scheme | $type_cc | $bank_name | $bank_brand | $country ($alpha2)");
-        echo "[$RD$no$DEF/$GR$total$DEF][$YL$iniJam$DEF]$GR PASSED$DEF =>$BL $list$DEF | [$YL GATE$DEF: $YL$gateway $DEF ][$YL MSG$DEF: $MG$msg$DEF ] | BY$CY DARKXCODE$DEF (V4.5)" . PHP_EOL;
+        echo "[$RD$no$DEF/$GR$total$DEF][$YL$iniJam$DEF]$GR PASSED$DEF =>$BL $list$DEF | [$YL GATE$DEF: $YL$gateway$DEF ] $payynya [$YL MSG$DEF: $MG$msg$DEF ] | BY$CY DARKXCODE$DEF (V4.5)" . PHP_EOL;
     } else if (strpos($x, "transaction_not_allowed")) {
         $cvv++;
         save_file("result/cvv.txt", "$list | $scheme | $type_cc | $bank_name | $bank_brand | $country ($alpha2)");
-        echo "[$RD$no$DEF/$GR$total$DEF][$YL$iniJam$DEF]$BL CVV$DEF =>$BL $list$DEF | [$YL GATE$DEF: $YL$gateway $DEF ][$YL MSG$DEF: $MG$msg$DEF ] | BY$CY DARKXCODE$DEF (V4.5)" . PHP_EOL;
+        echo "[$RD$no$DEF/$GR$total$DEF][$YL$iniJam$DEF]$BL CVV$DEF =>$BL $list$DEF | [$YL GATE$DEF: $YL$gateway$DEF ] $payynya [$YL MSG$DEF: $MG$msg$DEF ] | BY$CY DARKXCODE$DEF (V4.5)" . PHP_EOL;
     } else if (strpos($x, "authentication_required")) {
         $cvv++;
         save_file("result/cvv.txt", "$list | $scheme | $type_cc | $bank_name | $bank_brand | $country ($alpha2)");
-        echo "[$RD$no$DEF/$GR$total$DEF][$YL$iniJam$DEF]$BL CVV$DEF =>$BL $list$DEF | [$YL GATE$DEF: $YL$gateway $DEF ][$YL MSG$DEF: $MG$msg$DEF ] | BY$CY DARKXCODE$DEF (V4.5)" . PHP_EOL;
+        echo "[$RD$no$DEF/$GR$total$DEF][$YL$iniJam$DEF]$BL CVV$DEF =>$BL $list$DEF | [$YL GATE$DEF: $YL$gateway$DEF ] $payynya [$YL MSG$DEF: $MG$msg$DEF ] | BY$CY DARKXCODE$DEF (V4.5)" . PHP_EOL;
     } else if (strpos($x, "Your card zip code is incorrect.")) {
         $cvv++;
         save_file("result/cvv.txt", "$list | $scheme | $type_cc | $bank_name | $bank_brand | $country ($alpha2)");
-        echo "[$RD$no$DEF/$GR$total$DEF][$YL$iniJam$DEF]$BL CVV$DEF =>$BL $list$DEF | [$YL GATE$DEF: $YL$gateway $DEF ][$YL MSG$DEF: $MG$msg$DEF ] | BY$CY DARKXCODE$DEF (V4.5)" . PHP_EOL;
+        echo "[$RD$no$DEF/$GR$total$DEF][$YL$iniJam$DEF]$BL CVV$DEF =>$BL $list$DEF | [$YL GATE$DEF: $YL$gateway$DEF ] $payynya [$YL MSG$DEF: $MG$msg$DEF ] | BY$CY DARKXCODE$DEF (V4.5)" . PHP_EOL;
     } else if (strpos($x, "incorrect_zip")) {
         $cvv++;
         save_file("result/cvv.txt", "$list | $scheme | $type_cc | $bank_name | $bank_brand | $country ($alpha2)");
-        echo "[$RD$no$DEF/$GR$total$DEF][$YL$iniJam$DEF]$BL CVV$DEF =>$BL $list$DEF | [$YL GATE$DEF: $YL$gateway $DEF ][$YL MSG$DEF: $MG$msg$DEF ] | BY$CY DARKXCODE$DEF (V4.5)" . PHP_EOL;
+        echo "[$RD$no$DEF/$GR$total$DEF][$YL$iniJam$DEF]$BL CVV$DEF =>$BL $list$DEF | [$YL GATE$DEF: $YL$gateway$DEF ] $payynya [$YL MSG$DEF: $MG$msg$DEF ] | BY$CY DARKXCODE$DEF (V4.5)" . PHP_EOL;
     } else if (strpos($x, "card_error_authentication_required")) { 
         $cvv++;
         save_file("result/cvv.txt", "$list | $scheme | $type_cc | $bank_name | $bank_brand | $country ($alpha2)");
-        echo "[$RD$no$DEF/$GR$total$DEF][$YL$iniJam$DEF]$BL CVV$DEF =>$BL $list$DEF | [$YL GATE$DEF: $YL$gateway $DEF ][$YL MSG$DEF: $MG$msg$DEF ] | BY$CY DARKXCODE$DEF (V4.5)" . PHP_EOL;
+        echo "[$RD$no$DEF/$GR$total$DEF][$YL$iniJam$DEF]$BL CVV$DEF =>$BL $list$DEF | [$YL GATE$DEF: $YL$gateway$DEF ] $payynya [$YL MSG$DEF: $MG$msg$DEF ] | BY$CY DARKXCODE$DEF (V4.5)" . PHP_EOL;
     } else if (strpos($x, "three_d_secure_redirect")) {
         $cvv++;
         save_file("result/cvv.txt", "$list | $scheme | $type_cc | $bank_name | $bank_brand | $country ($alpha2)");
-        echo "[$RD$no$DEF/$GR$total$DEF][$YL$iniJam$DEF]$BL CVV$DEF =>$BL $list$DEF | [$YL GATE$DEF: $YL$gateway $DEF ][$YL MSG$DEF: $MG$msg$DEF ] | BY$CY DARKXCODE$DEF (V4.5)" . PHP_EOL;
+        echo "[$RD$no$DEF/$GR$total$DEF][$YL$iniJam$DEF]$BL CVV$DEF =>$BL $list$DEF | [$YL GATE$DEF: $YL$gateway$DEF ] $payynya [$YL MSG$DEF: $MG$msg$DEF ] | BY$CY DARKXCODE$DEF (V4.5)" . PHP_EOL;
     } else if (strpos($x, "incorrect_cvc")) {
         $ccn++;
         save_file("result/ccn.txt", "$list | $scheme | $type_cc | $bank_name | $bank_brand | $country ($alpha2)");
-        echo "[$RD$no$DEF/$GR$total$DEF][$YL$iniJam$DEF]$YL CCN$DEF =>$BL $list$DEF | [$YL GATE$DEF: $YL$gateway $DEF ][$YL MSG$DEF: $MG$msg$DEF ] | BY$CY DARKXCODE$DEF (V4.5)" . PHP_EOL;
+        echo "[$RD$no$DEF/$GR$total$DEF][$YL$iniJam$DEF]$YL CCN$DEF =>$BL $list$DEF | [$YL GATE$DEF: $YL$gateway$DEF ] $payynya [$YL MSG$DEF: $MG$msg$DEF ] | BY$CY DARKXCODE$DEF (V4.5)" . PHP_EOL;
     } else if (strpos($x, "invalid_cvc")) {
         $ccn++;
         save_file("result/ccn.txt", "$list | $scheme | $type_cc | $bank_name | $bank_brand | $country ($alpha2)");
-        echo "[$RD$no$DEF/$GR$total$DEF][$YL$iniJam$DEF]$YL CCN$DEF =>$BL $list$DEF | [$YL GATE$DEF: $YL$gateway $DEF ][$YL MSG$DEF: $MG$msg$DEF ] | BY$CY DARKXCODE$DEF (V4.5)" . PHP_EOL;
+        echo "[$RD$no$DEF/$GR$total$DEF][$YL$iniJam$DEF]$YL CCN$DEF =>$BL $list$DEF | [$YL GATE$DEF: $YL$gateway$DEF ] $payynya [$YL MSG$DEF: $MG$msg$DEF ] | BY$CY DARKXCODE$DEF (V4.5)" . PHP_EOL;
     } else if (strpos($x, "insufficient_funds")) {
         $ccn++;
         save_file("result/ccn.txt", "$list | $scheme | $type_cc | $bank_name | $bank_brand | $country ($alpha2)");
-        echo "[$RD$no$DEF/$GR$total$DEF][$YL$iniJam$DEF]$YL CCN$DEF =>$BL $list$DEF | [$YL GATE$DEF: $YL$gateway $DEF ][$YL MSG$DEF: $MG$msg$DEF ] | BY$CY DARKXCODE$DEF (V4.5)" . PHP_EOL;
+        echo "[$RD$no$DEF/$GR$total$DEF][$YL$iniJam$DEF]$YL CCN$DEF =>$BL $list$DEF | [$YL GATE$DEF: $YL$gateway$DEF ] $payynya [$YL MSG$DEF: $MG$msg$DEF ] | BY$CY DARKXCODE$DEF (V4.5)" . PHP_EOL;
     } else if (strpos($x, '"status":"failed"')) {
         $die++;
         save_file("result/dead.txt", "$list");
-        echo "[$RD$no$DEF/$GR$total$DEF][$YL$iniJam$DEF]$RD DIE$DEF =>$BL $list$DEF | [$YL GATE$DEF: $YL$gateway $DEF ][$YL MSG$DEF: $MG$msg$DEF ] | BY$CY DARKXCODE$DEF (V4.5)" . PHP_EOL;
+        echo "[$RD$no$DEF/$GR$total$DEF][$YL$iniJam$DEF]$RD DIE$DEF =>$BL $list$DEF | [$YL GATE$DEF: $YL$gateway$DEF ] $payynya [$YL MSG$DEF: $MG$msg$DEF ] | BY$CY DARKXCODE$DEF (V4.5)" . PHP_EOL;
     } else if (strpos($msg, 'erro')) {
         $die++;
         save_file("result/dead.txt", "$list");
-        echo "[$RD$no$DEF/$GR$total$DEF][$YL$iniJam$DEF]$RD DIE$DEF =>$BL $list$DEF | [$YL GATE$DEF: $YL$gateway $DEF ][$YL MSG$DEF: $MG$msg$DEF ] | BY$CY DARKXCODE$DEF (V4.5)" . PHP_EOL;
+        echo "[$RD$no$DEF/$GR$total$DEF][$YL$iniJam$DEF]$RD DIE$DEF =>$BL $list$DEF | [$YL GATE$DEF: $YL$gateway$DEF ] $payynya [$YL MSG$DEF: $MG$msg$DEF ] | BY$CY DARKXCODE$DEF (V4.5)" . PHP_EOL;
     } else if (strpos($msg, 'TIME OUT')) {
         $die++;
         save_file("result/dead.txt", "$list");
-        echo "[$RD$no$DEF/$GR$total$DEF][$YL$iniJam$DEF]$RD DIE$DEF =>$BL $list$DEF | [$YL GATE$DEF: $YL$gateway $DEF ][$YL MSG$DEF: $MG$msg$DEF ] | BY$CY DARKXCODE$DEF (V4.5)" . PHP_EOL;
+        echo "[$RD$no$DEF/$GR$total$DEF][$YL$iniJam$DEF]$RD DIE$DEF =>$BL $list$DEF | [$YL GATE$DEF: $YL$gateway$DEF ] $payynya [$YL MSG$DEF: $MG$msg$DEF ] | BY$CY DARKXCODE$DEF (V4.5)" . PHP_EOL;
     } else if (strpos($x, 'UNKNOWN RESPONSE!')) {
         $limit++;
         save_file("result/recheck.txt", "$list");
-        echo "[$RD$no$DEF/$GR$total$DEF][$YL$iniJam$DEF]$CY RECHECK$DEF =>$BL $list$DEF | [$YL GATE$DEF: $YL$gateway $DEF ][$YL MSG$DEF: $MG$msg$DEF ] | BY$CY DARKXCODE$DEF (V4.5)" . PHP_EOL;
+        echo "[$RD$no$DEF/$GR$total$DEF][$YL$iniJam$DEF]$CY RECHECK$DEF =>$BL $list$DEF | [$YL GATE$DEF: $YL$gateway$DEF ] $payynya [$YL MSG$DEF: $MG$msg$DEF ] | BY$CY DARKXCODE$DEF (V4.5)" . PHP_EOL;
     } else if (strpos($x, 'Bad Request')) {
         $die++;
         save_file("result/bad-req.txt", "$list");
-        echo "[$RD$no$DEF/$GR$total$DEF][$YL$iniJam$DEF]$RD DIE$DEF =>$BL $list$DEF | [$YL GATE$DEF: $YL$gateway $DEF ][$YL MSG$DEF: $MG$msg$DEF ] | BY$CY DARKXCODE$DEF (V4.5)" . PHP_EOL;
+        echo "[$RD$no$DEF/$GR$total$DEF][$YL$iniJam$DEF]$RD DIE$DEF =>$BL $list$DEF | [$YL GATE$DEF: $YL$gateway$DEF ] $payynya [$YL MSG$DEF: $MG$msg$DEF ] | BY$CY DARKXCODE$DEF (V4.5)" . PHP_EOL;
     } else if (strpos($x, 'proxy limit or proxy not support!')) {
         $die++;
         save_file("result/bad-req.txt", "$list");
-        echo "[$RD$no$DEF/$GR$total$DEF][$YL$iniJam$DEF]$RD DIE$DEF =>$BL $list$DEF | [$YL GATE$DEF: $YL$gateway $DEF ][$YL MSG$DEF: $MG$msg$DEF ] | BY$CY DARKXCODE$DEF (V4.5)" . PHP_EOL;
+        echo "[$RD$no$DEF/$GR$total$DEF][$YL$iniJam$DEF]$RD DIE$DEF =>$BL $list$DEF | [$YL GATE$DEF: $YL$gateway$DEF ] $payynya [$YL MSG$DEF: $MG$msg$DEF ] | BY$CY DARKXCODE$DEF (V4.5)" . PHP_EOL;
     } else if (strpos($x, 'Incorrect Apikey!')) {
         $die++;
-        echo "[$RD$no$DEF/$GR$total$DEF][$YL$iniJam$DEF]$RD DIE$DEF =>$BL $list$DEF | [$YL GATE$DEF: $YL$gateway $DEF ][$YL MSG$DEF: $MG$msg$DEF ] | BY$CY DARKXCODE$DEF (V4.5)" . PHP_EOL;
+        echo "[$RD$no$DEF/$GR$total$DEF][$YL$iniJam$DEF]$RD DIE$DEF =>$BL $list$DEF | [$YL GATE$DEF: $YL$gateway$DEF ] $payynya [$YL MSG$DEF: $MG$msg$DEF ] | BY$CY DARKXCODE$DEF (V4.5)" . PHP_EOL;
     } else if ($x == '') {
         $die++;
         save_file("result/bad-req.txt", "$list");
-        echo "[$RD$no$DEF/$GR$total$DEF][$YL$iniJam$DEF]$RD DIE$DEF =>$BL $list$DEF | [$YL GATE$DEF: $YL$gateway $DEF ][$YL MSG$DEF: $MG$msg$DEF ] | BY$CY DARKXCODE$DEF (V4.5)" . PHP_EOL;
+        echo "[$RD$no$DEF/$GR$total$DEF][$YL$iniJam$DEF]$RD DIE$DEF =>$BL $list$DEF | [$YL GATE$DEF: $YL$gateway$DEF ] $payynya [$YL MSG$DEF: $MG$msg$DEF ] | BY$CY DARKXCODE$DEF (V4.5)" . PHP_EOL;
     } else if ($x == 'UNKNOWN RESPONSE!') {
         $die++;
         save_file("result/bad-req.txt", "$list");
-        echo "[$RD$no$DEF/$GR$total$DEF][$YL$iniJam$DEF]$RD DIE$DEF =>$BL $list$DEF | [$YL GATE$DEF: $YL$gateway $DEF ][$YL MSG$DEF: $MG$msg$DEF ] | BY$CY DARKXCODE$DEF (V4.5)" . PHP_EOL;
+        echo "[$RD$no$DEF/$GR$total$DEF][$YL$iniJam$DEF]$RD DIE$DEF =>$BL $list$DEF | [$YL GATE$DEF: $YL$gateway$DEF ] $payynya [$YL MSG$DEF: $MG$msg$DEF ] | BY$CY DARKXCODE$DEF (V4.5)" . PHP_EOL;
     } else {
         $unknown++;
         save_file("result/unknown.txt", "$list");
         //echo $x.PHP_EOL;
-        echo "[$RD$no$DEF/$GR$total$DEF][$YL$iniJam$DEF]$WH UNKNOWN$DEF =>$BL $list$DEF | [$YL GATE$DEF: $YL$gateway $DEF ][$YL MSG$DEF: $MG$msg$DEF ] | BY$CY DARKXCODE$DEF (V4.5)" . PHP_EOL;
+        echo "[$RD$no$DEF/$GR$total$DEF][$YL$iniJam$DEF]$WH UNKNOWN$DEF =>$BL $list$DEF | [$YL GATE$DEF: $YL$gateway$DEF ] $payynya [$YL MSG$DEF: $MG$msg$DEF ] | BY$CY DARKXCODE$DEF (V4.5)" . PHP_EOL;
     }
 
 }
